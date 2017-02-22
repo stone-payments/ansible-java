@@ -1,0 +1,6 @@
+---
+- name: install Java JDK
+  include: install.yml
+
+- name: configure environment variables to JDK
+  include: configure.yml

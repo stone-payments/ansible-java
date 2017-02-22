@@ -1,0 +1,17 @@
+---
+- name: "Remove lasted version of Java"
+  yum:
+    # name: "java-1.{{ jdk_version-1 }}.0-openjdk*"
+    name: java-1.*
+    state: removed
+
+- name: "Download Java"
+  get_url:
+    headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
+    url: "{{ oracle_jdk_url }}"
+    dest: "/tmp/{{ jdk_rpm_verion }}"
+
+- name: "Install Java"
+  yum:
+    name: "/tmp/{{ jdk_rpm_verion }}"
+    state: present

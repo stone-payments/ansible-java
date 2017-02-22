@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Paulo Mariano
+  description: Role for installing Java Oracle JDK
+  company: Buy4 Processamento de Pagamentos S.A.
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 2.0.0
+  platforms:
+  - name: EL
+    versions:
+    - 7
+  galaxy_tags:
+  - java
+# dependencies: [ "buy4.nohugepages" ]
