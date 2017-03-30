@@ -1,9 +1,9 @@
 ---
 - name: "Remove lasted version of Java"
   yum:
-    # name: "java-1.{{ jdk_version-1 }}.0-openjdk*"
     name: java-1.*
     state: removed
+  when: remove_java
 
 - name: "Download Java"
   get_url:
