@@ -9,9 +9,17 @@
   get_url:
     headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
     url: "{{ oracle_jdk_url }}"
-    dest: "/tmp/{{ jdk_rpm_verion }}"
+    dest: "/tmp/{{ jdk_rpm_version }}"
+  when: oracle_jdk_url is defined
 
-- name: "Install Java"
+- name: "Install downloaded Java"
   yum:
-    name: "/tmp/{{ jdk_rpm_verion }}"
+    name: "/tmp/{{ jdk_rpm_version }}"
     state: present
+  when: oracle_jdk_url is defined
+
+- name: "Install Java from repo"
+  yum:
+    name: java-{{ java_version }}-openjdk
+    state: present
+  when: oracle_jdk_url is not defined

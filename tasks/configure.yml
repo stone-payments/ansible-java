@@ -7,3 +7,4 @@
   with_items:
     - { regexp: "^JAVA_HOME=", line: "JAVA_HOME=/usr/java/jdk1.{{ jdk_version }}.0_{{ jdk_update }}" }
     - { regexp: "^JRE_HOME=", line: "JRE_HOME=/usr/java/jdk1.{{ jdk_version }}.0_{{ jdk_update }}/jre" }
+  when: oracle_jdk_url is defined
