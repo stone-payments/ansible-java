@@ -1,0 +1,11 @@
+---
+scenario:
+  name: default
+  converge_sequence:
+    - create
+    - converge
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - destroy

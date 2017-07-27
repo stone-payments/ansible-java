@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    box: bento/centos-7.3
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: default
+  converge_sequence:
+    - create
+    - converge
+  test_sequence:
+    - destroy
+    - create
+    - converge
+    - destroy
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

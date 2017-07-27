@@ -19,6 +19,7 @@
   when: oracle_jdk_url is defined
 
 - name: "Install Java from repo"
+  become: true
   yum:
     name: java-{{ java_version }}-openjdk
     state: present
